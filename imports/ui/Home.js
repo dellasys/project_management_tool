@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setCurrentPage } from '../Actions';
 import { CSSTransitionGroup } from 'react-transition-group';
+import TransitionGroup from 'react-transition-group/TransitionGroup'
 import Search from '../ui/Projects/Seach';
 
 let searchKeyword = ReactiveVar('');
@@ -43,15 +44,25 @@ class Home extends Component{
         return (
             <div>
                 <Search handleKeywordChange={this.handleKeywordChange} 
-                        searchKeyword={this.searchKeyword}/>
+                        searchKeyword={this.searchKeyword} />
                 <br/>
-                <div className='project-box'>
-                    {
-                        projectList.map(project => {
-                            return <ProjectItem key={project._id} projectData={project}/>
-                        })
-                    }
-                </div>
+                {/* <div className='project-box'> */}
+                    <CSSTransitionGroup
+                        className='project-box'
+                        transitionName="animatelist"
+                        transitionEnterTimeout={600}
+                        transitionAppearTimeout={600}
+                        transitionLeaveTimeout={200}
+                        transitionAppear={true} >
+                        {
+                            projectList.map(project => {
+                                return <TransitionGroup>
+                                            <ProjectItem key={project._id} projectData={project}/>
+                                        </TransitionGroup>
+                            })
+                        }
+                    </CSSTransitionGroup>
+                {/* </div> */}
             </div>
         )
     }

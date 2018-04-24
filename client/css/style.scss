@@ -15,20 +15,20 @@ $theme-color:green;
 }
 
 .project-box{
-    display:grid;
-    grid-gap:5px;
+    display: grid;
+    grid-gap: 5px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    padding:6px;
+    padding: 6px;
 }
 
 .project-item{
-    display:grid;
-    grid-template-columns: auto 60px;
+    display: grid;
+    grid-template-columns: auto 40px;
     opacity: 1;
     transition: 'opacity 0.5s';
-    padding:10px 10px 0px 10px;
-    height:150px;
-    margin-bottom:10px;
+    padding: 10px 10px 0px 10px;
+    height: 150px;
+    margin-bottom: 10px;
     border-radius: 2px;
     > div{
         &:nth-child(3){
@@ -38,9 +38,9 @@ $theme-color:green;
 }
 
 .features_box{
-    display:flex;
+    display: flex;
     justify-content: center;
-    margin-bottom:200px;
+    margin-bottom: 200px;
     height: 100%;
     padding-top: 10px;
 }
@@ -133,20 +133,20 @@ $theme-color:green;
 }
 
 // CSS Transition
-// .animatelist-enter {
-//     transform: translate(100%);
-// }
-// .animatelist-enter .animatelist-enter-active {
-//     transform: translate(0%);
-//     transition: transform 1000ms ease-in-out;
-// }
-// .animatelist-leave {
-//     transform: translate(0%);
-// }
-// .animatelist-leave .animatelist-leave-active {
-//     transform: translate(-100%);
-//     transition: transform 1000ms ease-in-out;
-// } 
+.animatelist-enter {
+    transform: translate(100%);
+}
+.animatelist-enter .animatelist-enter-active {
+    transform: translate(0%);
+    transition: transform 1000ms ease-in-out;
+}
+.animatelist-leave {
+    transform: translate(0%);
+}
+.animatelist-leave .animatelist-leave-active {
+    transform: translate(-100%);
+    transition: transform 1000ms ease-in-out;
+} 
 
 // .animatelist-enter {
 //     opacity: 0.01;
@@ -216,6 +216,15 @@ $theme-color:green;
 .incomplete-status{
     color: #D00915;
     transition: opacity 0.5s;
+}
+
+.loadingGroup{
+    text-align: center;
+}
+
+.feature-number{
+    font-size: 9pt;
+    font-weight: bold;
 }
 
 //**** Transition fade in ****

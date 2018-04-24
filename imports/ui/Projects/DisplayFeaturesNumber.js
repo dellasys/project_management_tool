@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const DisplayFeaturesNumber = ({ featuresNumber }) => {
 
     return (
-            <span>{featuresNumber} Features</span>
+            <span className='feature-number'>{featuresNumber} Features</span>
     )
 }
 

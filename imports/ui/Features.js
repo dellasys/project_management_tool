@@ -23,11 +23,13 @@ class Features extends Component{
         const { featuresList, featuresSubReady, projectsList, 
                 projectsSubReady, projectId } = this.props;
         
-        if(projectsList.length < 1 && projectsSubReady){
+        if(!projectsSubReady){
+            return <div clsssName='loadingGroup'>Loading...</div>
+        }else if(projectsList.length < 1 && projectsSubReady){
             return <ProjectDoesNotExist />
         }
         
-        return (   
+        return (
             <div className='features_box'>
                 <div className='features_list'>
                     <h3>
@@ -47,7 +49,7 @@ class Features extends Component{
                         transitionEnterTimeout={600}
                         transitionAppearTimeout={600}
                         transitionLeaveTimeout={200}
-                        transitionAppear={true}> */}
+                        transitionAppear={true} >  */}
                     {
                         featuresList.map(featureData => {
                             return <FeatureItem key={featureData._id} featureData={featureData} />
