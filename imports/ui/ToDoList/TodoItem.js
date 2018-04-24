@@ -91,7 +91,7 @@ class TodoItem extends Component {
         const { todoValue, todoEdit } = this.state;
         
         return (
-            <div className='todo-item fade-in'>
+            <div className='todo-item'>
                 <div className='todo-grid-child'>
                     <Checkbox
                         label=""
@@ -100,18 +100,16 @@ class TodoItem extends Component {
                         style={styles.checkbox} />
                 </div>
                 <div className='todo-grid-child' style={todoData.checked ? styles.checked: {}}>
-                    <div>
-                        {
-                            todoEdit ?
-                                <TextField
-                                    name='todoValue'
-                                    value={todoValue}
-                                    onChange={(e) => this.handleInputChange(e)}
-                                    hintText="" />
-                            :
-                                <div>{todoValue}</div>
-                        }
-                    </div>
+                    {
+                        todoEdit ?
+                            <TextField
+                                name='todoValue'
+                                value={todoValue}
+                                onChange={(e) => this.handleInputChange(e)}
+                                hintText="" />
+                        :
+                            <div>{todoValue}</div>
+                    }
                 </div>
                 <div className='todo-grid-child'>
                     <TodoStatus todoStatus={todoData.checked} />

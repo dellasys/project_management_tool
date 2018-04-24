@@ -24,7 +24,7 @@ class Features extends Component{
                 projectsSubReady, projectId } = this.props;
         
         if(!projectsSubReady){
-            return <div clsssName='loadingGroup'>Loading...</div>
+            return <div className='loadingGroup'>Loading...</div>
         }else if(projectsList.length < 1 && projectsSubReady){
             return <ProjectDoesNotExist />
         }
@@ -32,7 +32,7 @@ class Features extends Component{
         return (
             <div className='features_box'>
                 <div className='features_list'>
-                    <h3>
+                    <h3 className='project-title-h3'>
                     {
                         projectsList.length > 0 ?
                         projectsList[0].projectName :
@@ -44,18 +44,18 @@ class Features extends Component{
                         <NoFeatureFound />:
                         ''
                     }
-                    {/* <CSSTransitionGroup
-                        transitionName="animatelist"
+                    <CSSTransitionGroup
+                        transitionName="animatedlist"
                         transitionEnterTimeout={600}
                         transitionAppearTimeout={600}
                         transitionLeaveTimeout={200}
-                        transitionAppear={true} >  */}
+                        transitionAppear={true}>
                     {
                         featuresList.map(featureData => {
                             return <FeatureItem key={featureData._id} featureData={featureData} />
                         })
                     }
-                    {/* </CSSTransitionGroup> */}
+                    </CSSTransitionGroup>
                 </div>
             </div>
         )

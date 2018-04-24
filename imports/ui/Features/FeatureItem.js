@@ -129,7 +129,9 @@ class FeatureItem extends Component {
                             <div className='view-todo-list-btn-div'>
                                 <div></div>
                                 You have {featureData.todos.length} todo in the list
-                                <div><DisplayNumberOfComplete todosData={featureData.todos} /></div>
+                                <div>
+                                    <DisplayNumberOfComplete todosData={featureData.todos} />
+                                </div>
                                 <div></div>
                             </div>
                         </a>

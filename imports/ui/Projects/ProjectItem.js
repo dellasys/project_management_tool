@@ -23,11 +23,6 @@ class ProjectItem extends PureComponent {
     }
 
     editProject = () => {
-        // e.cancelBubble = true;
-        // if(e.stopPropagation){
-        //     e.stopPropagation();
-        // }
-
         this.setState({
             projectEdit: !this.state.projectEdit
         })
@@ -68,56 +63,44 @@ class ProjectItem extends PureComponent {
         });
     }
 
-    // redirectToFeatures = () => {
-    //     this.setState((oldState) => {
-    //         return {
-    //             redirectToFeatures: !oldState.redirectToFeatures
-    //         } 
-    //     })
-    // }
-
     render(){
         const { projectData } = this.props;
         const { projectName, projectEdit } = this.state;
         
-        // if(redirectToFeatures){
-        //     return <Redirect to={`/features/${projectData._id}`} />
-        // }
-        
         return (
             <Paper>
-            <div className='project-item' > {/* onClick={this.redirectToFeatures} */}
-                <div>
-                    {
-                        projectEdit ? 
-                            <TextField
-                                name='projectName'
-                                fullWidth={true}
-                                value={projectName}
-                                onChange={(e) => this.handleInputChange(e)}
-                                hintText="" />
-                        :
-                        <Link to={`/features/${projectData._id}`}>{projectName}</Link>
-                    }
+                <div className='project-item'>
+                    <div>
+                        {
+                            projectEdit ? 
+                                <TextField
+                                    name='projectName'
+                                    fullWidth={true}
+                                    value={projectName}
+                                    onChange={(e) => this.handleInputChange(e)}
+                                    hintText="" />
+                            :
+                            <Link to={`/features/${projectData._id}`}>{projectName}</Link>
+                        }
+                    </div>
+                    <div>
+                        {
+                            projectEdit ? 
+                                <div className='edit-remove-btn-group'>
+                                    <SaveBtn saveData={() => this.saveProject()}/>
+                                </div>
+                            :
+                                <div className='edit-remove-btn-group'>
+                                    <EditBtn editData={this.editProject} />
+                                    <RemoveBtn removeData={() => this.removeAllProjectAssociatesData()} />
+                                </div>
+                        }
+                    </div>
+                    <div className='feature-row'>
+                        <DisplayFeaturesNumber featuresNumber={projectData.features.length} />
+                        <TimeFromNow dateTime={projectData.createdAt}/>
+                    </div>
                 </div>
-                <div>
-                    {
-                        projectEdit ? 
-                            <div className='edit-remove-btn-group'>
-                                <SaveBtn saveData={() => this.saveProject()}/>
-                            </div>
-                        :
-                            <div className='edit-remove-btn-group'>
-                                <EditBtn editData={this.editProject} />
-                                <RemoveBtn removeData={() => this.removeAllProjectAssociatesData()} />
-                            </div>
-                    }
-                </div>
-                <div className='feature-row'>
-                    <DisplayFeaturesNumber featuresNumber={projectData.features.length} />
-                    <TimeFromNow dateTime={projectData.createdAt}/>
-                </div>
-            </div>
             </Paper>
         )
     }

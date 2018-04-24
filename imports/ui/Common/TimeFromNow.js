@@ -5,7 +5,9 @@ import moment from 'moment';
 const TimeFromNow = ({ dateTime }) => {
 
     return (
-            <span className='time-from-now'>{moment(new Date(dateTime)).fromNow()}</span>
+            <span className='time-from-now'>
+                {moment(new Date(dateTime)).fromNow()}
+            </span>
     )
 }
 

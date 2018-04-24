@@ -12,8 +12,6 @@ import NoTodoFound from './ToDoList/NoTodoFound';
 
 class ToDoList extends Component{
 
-    
-
     render(){
 
         const { featureData, todosList } = this.props;
@@ -26,11 +24,18 @@ class ToDoList extends Component{
                     :
                         ''
                 }
+                <CSSTransitionGroup
+                    transitionName="animatedlist"
+                    transitionEnterTimeout={300}
+                    transitionAppearTimeout={200}
+                    transitionLeaveTimeout={300}
+                    transitionAppear={true}>
                 {
                     todosList.map(todo => {
                         return <TodoItem key={todo._id} todoData={todo} />
                     })
                 }
+                </CSSTransitionGroup>
                 <CreateTodoButton featureData={featureData} />
             </div>
         )
