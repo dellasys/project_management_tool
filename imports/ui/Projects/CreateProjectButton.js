@@ -15,14 +15,15 @@ class CreateProjectButton extends Component {
         }
     }
 
+    //Open dialog by chaning the state
     triggerProjectNameDialog = (state) => {
-        // e.preventDefault();
         this.setState({
             triggerProjectNameDialog: state,
             projectName: ''
         })
     }
 
+    //Insert new project
     insertProject = (e) => {
         e.preventDefault();
         let objData = {
@@ -37,7 +38,8 @@ class CreateProjectButton extends Component {
         });
     }
 
-    handleInputChange(e) {
+    //Update new project name state
+    handleInputChange = (e) => {
         this.setState({
             projectName: e.target.value,
         });
@@ -69,10 +71,10 @@ class CreateProjectButton extends Component {
             <div>
                 <button type='button' className='btn btn-info' 
                         onClick={() => this.triggerProjectNameDialog(true)}>
-                    Create New Project
+                    <i className="fas fa-plus"></i> New Project
                 </button>
                 <Dialog
-                    title={false}
+                    title='New Project'
                     contentStyle={dialogStyle}
                     actions={actions}
                     modal={false}
@@ -83,7 +85,7 @@ class CreateProjectButton extends Component {
                             hintText=""
                             value={projectName}
                             onChange={(e) => this.handleInputChange(e)}
-                            floatingLabelText="Project Name" />
+                            floatingLabelText="Name" />
                     </form>
                 </Dialog>
             </div>

@@ -7,6 +7,7 @@ import SaveBtn from '../Common/SaveBtn';
 import EditBtn from '../Common/EditBtn';
 import RemoveBtn from '../Common/RemoveBtn';
 import TimeFromNow from '../Common/TimeFromNow';
+import DateTime from '../Common/DateTime';
 import DisplayFeaturesNumber from '../Projects/DisplayFeaturesNumber';
 import Paper from 'material-ui/Paper';
 
@@ -22,12 +23,14 @@ class ProjectItem extends PureComponent {
         }
     }
 
+    //Turn editing mode on
     editProject = () => {
         this.setState({
             projectEdit: !this.state.projectEdit
         })
     }
 
+    //Update existing projects
     saveProject = () => {
         const objData = {
             projectName: this.state.projectName
@@ -40,16 +43,9 @@ class ProjectItem extends PureComponent {
             }
         });
     }
-
-    removeProject(){
-        Meteor.call('projects.remove', this.props.projectData._id, (err, res) => {
-            if(err){
-               alert(err); 
-            }
-        });
-    }
-
-    removeAllProjectAssociatesData(){
+    
+    //Remove all the todos and features of a project.
+    removeAllProjectAssociatesData = () => {
         Meteor.call('remove.projects.features.todos', this.props.projectData._id, (err, res) => {
             if(err){
                 alert(err);
@@ -57,6 +53,7 @@ class ProjectItem extends PureComponent {
         });
     }
 
+    //Update project name state when editing
     handleInputChange(e) {
         this.setState({
             projectName: e.target.value,
@@ -68,8 +65,8 @@ class ProjectItem extends PureComponent {
         const { projectName, projectEdit } = this.state;
         
         return (
-            <Paper>
-                <div className='project-item'>
+            <Paper className='project-item'>
+                {/* <div className='project-item'> */}
                     <div>
                         {
                             projectEdit ? 
@@ -80,7 +77,7 @@ class ProjectItem extends PureComponent {
                                     onChange={(e) => this.handleInputChange(e)}
                                     hintText="" />
                             :
-                            <Link to={`/features/${projectData._id}`}>{projectName}</Link>
+                            <Link to={`/features/${projectData._id}`}><strong>{projectName}</strong></Link>
                         }
                     </div>
                     <div>
@@ -98,9 +95,9 @@ class ProjectItem extends PureComponent {
                     </div>
                     <div className='feature-row'>
                         <DisplayFeaturesNumber featuresNumber={projectData.features.length} />
-                        <TimeFromNow dateTime={projectData.createdAt}/>
+                        <DateTime dateTime={projectData.createdAt}/>
                     </div>
-                </div>
+                {/* </div> */}
             </Paper>
         )
     }

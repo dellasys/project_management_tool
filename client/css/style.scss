@@ -1,7 +1,7 @@
-$theme-color:green;
+$theme-color:#F9F9F9;
 
 .btn-warning, .btn-danger, .btn-primary{
-    padding:0;
+    padding:3px;
     font-size: 8pt;
     // width:90px;
 }
@@ -16,10 +16,15 @@ $theme-color:green;
 
 .project-box{
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 12px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    padding: 6px;
+    padding: 10px;
+    margin-bottom:50px;
 }
+
+// .project-item-paper{
+
+// }
 
 .project-item{
     display: grid;
@@ -27,9 +32,9 @@ $theme-color:green;
     opacity: 1;
     transition: 'opacity 0.5s';
     padding: 10px 10px 0px 10px;
-    height: 150px;
-    margin-bottom: 10px;
+    height: 170px;
     border-radius: 2px;
+    background-color: $theme-color !important;
     > div{
         &:nth-child(3){
             grid-column: 1 / 3;
@@ -46,8 +51,6 @@ $theme-color:green;
 }
 
 .features_list{
-    border-left: 2px solid #ccc;
-    border-right: 2px solid #ccc;
     width:700px;
     padding: 10px;
 }
@@ -60,6 +63,7 @@ $theme-color:green;
             grid-column: 1 / 3;
         }
     }
+    background-color: $theme-color !important;
     padding:10px;
     margin-top:10px;
     border-radius: 2px;
@@ -112,8 +116,9 @@ $theme-color:green;
 
 .menu-bar{
     display:grid;
-    grid-template-columns: auto 150px;
+    grid-template-columns: auto 120px;
     padding:10px;
+    background-color: $theme-color;
 }
 
 .create-project-dialog{
@@ -241,4 +246,19 @@ $theme-color:green;
 
 .project-title-h3{
     margin-top: 0px;
+}
+
+.projects-sorting-row{
+    display: flex;
+    justify-content: flex-end;
+    padding:0px 10px 10px 10px;
+}
+
+.sortingGroup{
+    display:flex;
+    // justify-content: center;
+    align-items: center;
+    button{
+        margin-top:20px;
+    }
 }

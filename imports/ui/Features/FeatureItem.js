@@ -25,13 +25,15 @@ class FeatureItem extends Component {
         }
     }
 
-    editFeature(){
+    //TUrn editing mode on
+    editFeature = () => {
         this.setState({
             featureEdit: !this.state.featureEdit
         })
     }
 
-    saveFeature(){
+    //Update existing feature
+    saveFeature = () => {
         const objData = {
             ...this.state.featureForm
         };
@@ -44,15 +46,8 @@ class FeatureItem extends Component {
         });
     }
 
-    removeFeature(){
-        Meteor.call('features.remove', this.props.featureData._id, (err, res) => {
-            if(!err){
-                
-            }
-        });
-    }
-
-    removeAllFeatureAssociatesData(){
+    //Remove all todos that associated with a feature
+    removeAllFeatureAssociatesData = () => {
         Meteor.call('remove.features.todos', this.props.featureData._id, (err, res) => {
             if(!err){
 
@@ -60,7 +55,8 @@ class FeatureItem extends Component {
         })
     }
 
-    handleInputChange(e) {
+    //Update features information when editing
+    handleInputChange = (e) => {
         let formObj = {...this.state.featureForm};
         formObj[e.target.name] = e.target.value;
 
@@ -74,11 +70,11 @@ class FeatureItem extends Component {
         const { featureEdit, featureForm } = this.state;
 
         return (
-            <Paper>
-                <div className='feature-item'>
+            <Paper className='feature-item'>
+                {/* <div > */}
                     <div>
                         <div className=''>
-                            <b>Title</b> :&nbsp;
+                            <b>Title</b> : &nbsp;
                             {
                                 featureEdit ? 
                                 <div>
@@ -93,7 +89,7 @@ class FeatureItem extends Component {
                             }
                         </div>
                         <div>
-                            <b>Description</b> :  &nbsp;
+                            <b>Description</b> : &nbsp;
                             {
                                 featureEdit ? 
                                 <div>
@@ -105,7 +101,7 @@ class FeatureItem extends Component {
                                         rows={2}
                                         onChange={(e) => this.handleInputChange(e)}
                                         hintText="" />
-                                </div> :
+                                </div> : 
                                 featureForm.description
                             }
                         </div>
@@ -139,7 +135,7 @@ class FeatureItem extends Component {
                             <ToDoList featureData={featureData} todosList={featureData.todos} />
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
             </Paper>
         )
 

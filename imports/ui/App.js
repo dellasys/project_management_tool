@@ -27,19 +27,21 @@ class App extends Component{
                 <div>
                     <header className='header'>
                         <Link className='href-link-remove' to='/'>
-                            <h3>Simple Project Management Tool</h3>
+                            <h3>PM Tool</h3>
                         </Link>
                     </header>
                     <Divider />
                     <main>
                         <Provider store={store}>
                             <div className='main-content'>
+                                {/* Display Menu Bar for everypage */}
                                 <Route path='/' component={MenuBar} />
+                                {/* Display Home if path is exact / */}
                                 <Route exact path='/' component={Home} />
+                                {/* Display feature with query string id / */}
                                 <Route path='/features/:id' component={Features} />
                             </div>
                         </Provider>
-                        {/* <Route path="/about" component={About} /> */}
                     </main>
                 </div>
             </Router>

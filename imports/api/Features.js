@@ -13,8 +13,8 @@ if (Meteor.isServer) {
     });
 
     Meteor.publish('features.todos', function(projectId){
-        let pipeline = [{$match:{projectId: projectId}}];
-        let lookupTodos = {
+        const pipeline = [{$match:{projectId: projectId}}];
+        const lookupTodos = {
             $lookup:{
                 from:'todos',
                 localField:'_id',
@@ -22,10 +22,13 @@ if (Meteor.isServer) {
                 as:'todos'
             }
         }
+        const sorting = {
+            $sort: { createdAt: 1 }
+        }
         pipeline.push(lookupTodos);
+        pipeline.push(sorting);
         
         ReactiveAggregate(this, FeaturesCol , pipeline, {clientCollection: 'features.todos'});
-        
     });
 }
 

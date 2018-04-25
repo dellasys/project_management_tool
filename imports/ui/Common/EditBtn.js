@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/fontawesome-free-solid';
 
 const EditBtn = ({editData}) => {
 
     return (
             <button className='btn btn-warning' onClick={editData}>
-                <i className="far fa-edit"></i>
+                <FontAwesomeIcon icon={faEdit} size='lg' />
             </button>
     )
 }

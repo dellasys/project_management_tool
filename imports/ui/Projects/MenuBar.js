@@ -28,7 +28,6 @@ class MenuBar extends Component{
                             <CreateTodoButton projectId={projectId} /> :
                         ''
                     }
-                    
                 </div>
                 <Divider />
             </div>

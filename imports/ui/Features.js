@@ -10,10 +10,11 @@ import { setCurrentPage } from '../Actions';
 import { CSSTransitionGroup } from 'react-transition-group';
 import FeatureItem from './Features/FeatureItem';
 import ProjectDoesNotExist from './Common/ProjectDoesNotExist';
-import NoFeatureFound from './Common/NoFeatureFound';
+import NoItemFound from './Common/NoItemFound';
 
 class Features extends Component{
 
+    //Update current page to redux store everytime component mounting
     componentWillMount(){
         this.props.setCurrentPage('features');
     }
@@ -24,8 +25,10 @@ class Features extends Component{
                 projectsSubReady, projectId } = this.props;
         
         if(!projectsSubReady){
+            //When subscription has not ready return Loading...
             return <div className='loadingGroup'>Loading...</div>
-        }else if(projectsList.length < 1 && projectsSubReady){
+        }else if(projectsList.length < 1 && projectsSubReady){  
+            //When subscription has ready and projectsList is empty return ProjectDoesNotExist component
             return <ProjectDoesNotExist />
         }
         
@@ -41,14 +44,14 @@ class Features extends Component{
                     </h3>
                     {
                         featuresList.length < 1 ?
-                        <NoFeatureFound />:
+                        <NoItemFound content='No feature has created.' />:
                         ''
                     }
                     <CSSTransitionGroup
                         transitionName="animatedlist"
-                        transitionEnterTimeout={600}
-                        transitionAppearTimeout={600}
-                        transitionLeaveTimeout={200}
+                        transitionEnterTimeout={300}
+                        transitionAppearTimeout={200}
+                        transitionLeaveTimeout={300}
                         transitionAppear={true}>
                     {
                         featuresList.map(featureData => {

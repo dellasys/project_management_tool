@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/fontawesome-free-solid';
 
 const RemoveBtn = ({removeData}) => {
 
     return (
             <button className='btn btn-danger' onClick={removeData}>
-                <i className="fas fa-trash-alt"></i>
+                <FontAwesomeIcon icon={faTrashAlt} size='lg' />
             </button>
     )
 }

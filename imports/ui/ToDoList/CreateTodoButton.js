@@ -18,12 +18,14 @@ class CreateTodoButton extends Component {
             
     }
 
+    //Open dialog by changing state
     triggerTodoDialog = (state) => {
         this.setState({
             triggerTodoDialog: state
         })
     }
 
+    //Insert new todo item into db
     insertTodo = (e) => {
         e.preventDefault();
         let objData = {
@@ -47,6 +49,7 @@ class CreateTodoButton extends Component {
         });
     }
 
+    //Update todo state when inserting
     handleInputChange(e) {
         let tempTodo = {...this.state.todo};
         tempTodo[e.target.name] = e.target.value;

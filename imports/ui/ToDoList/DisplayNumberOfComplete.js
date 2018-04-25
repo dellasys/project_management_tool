@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 const DisplayNumberOfComplete = ({ todosData }) => {
 
+    //Count the total amount of checked and unchecked todo items
     const countTodosComplete = () => {
         let todos = {
             true:0,

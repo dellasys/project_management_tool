@@ -33,13 +33,14 @@ class TodoItem extends Component {
             todoEdit:false
         }
     }
-
+    //Turn editing mode on to display the input box
     editTodo(){
         this.setState({
             todoEdit: !this.state.todoEdit
         })
     }
 
+    //Save edited todo into db
     saveTodo(){
         const objData = {
             name: this.state.todoValue
@@ -53,6 +54,7 @@ class TodoItem extends Component {
         });
     }
 
+    //Remove todos data from db
     removeTodo(){
         Meteor.call('todos.remove', this.props.todoData._id, (err, res) => {
             Meteor.call('features.update', this.props.todoData.featureId, {modifiedTodoAt: new Date()}, (err1, res1) => {
@@ -63,6 +65,7 @@ class TodoItem extends Component {
         });
     }
 
+    //Update todo checked status when check box has been checked
     updateCheck() {
         const objData = {
             checked: !this.state.checked
@@ -79,7 +82,8 @@ class TodoItem extends Component {
             });
         });
     }
-
+    
+    //Update todo item name state
     handleInputChange(e) {
         this.setState({
             todoValue: e.target.value,

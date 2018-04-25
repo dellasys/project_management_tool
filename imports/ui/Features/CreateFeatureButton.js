@@ -77,7 +77,7 @@ class CreateFeatureButton extends Component {
         return (
             <div>
                 <button className='btn btn-info' onClick={() => this.triggerFeatureDialog(true)}>
-                    Create New Feature
+                    <i className="fas fa-plus"></i> New Feature
                 </button>
                 <Dialog
                     title='New Feature'
