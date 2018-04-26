@@ -108,6 +108,7 @@ class TodoItem extends Component {
                         todoEdit ?
                             <TextField
                                 name='todoValue'
+                                fullWidth={true}
                                 value={todoValue}
                                 onChange={(e) => this.handleInputChange(e)}
                                 hintText="" />

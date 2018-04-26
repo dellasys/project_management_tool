@@ -17,10 +17,10 @@ if (Meteor.isServer) {
 
         if(projectId){
             pipeline.push({
-                    $match:{
-                        _id: projectId
-                    }
-                });
+                $match:{
+                    _id: projectId
+                }
+            });
         }
 
         const lookupFeatures = {
@@ -65,7 +65,7 @@ if (Meteor.isServer) {
         if(sorting){
             pipeline.push(sorting);
         }
-        console.log(pipeline);
+        
         ReactiveAggregate(this, Projects , pipeline, {clientCollection: "projects.features"});
     }); 
 }

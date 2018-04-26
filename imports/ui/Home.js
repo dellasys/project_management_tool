@@ -63,12 +63,12 @@ class Home extends Component{
         return (
             <div>
                 <div className='projects-sorting-row'>
+                    <Search handleKeywordChange={this.handleKeywordChange} 
+                        searchKeyword={this.searchKeyword} />
                     <ProjectsSorting sortingField={sortingField.get()} 
                             sortingUpDownValue={sortingUpDownValue.get()} sortProjects={this.sortProjects}
                             sortUpDown={this.sortUpDown} />
                 </div>
-                <Search handleKeywordChange={this.handleKeywordChange} 
-                        searchKeyword={this.searchKeyword} />
                 {
                     projectList.length < 1 ? 
                         <NoItemFound content='No project found.' />

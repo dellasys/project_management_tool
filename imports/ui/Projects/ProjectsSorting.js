@@ -20,7 +20,7 @@ class ProjectsSorting extends Component {
         const {  } = this.state;
         
         return (
-            <div className='sortingGroup'>
+            <div className='sorting-group'>
                 <SelectField
                     floatingLabelText="Sort by"
                     value={sortingField}

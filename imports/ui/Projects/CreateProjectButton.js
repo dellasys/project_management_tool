@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/fontawesome-free-solid';
 
 class CreateProjectButton extends Component {
 
@@ -71,7 +73,7 @@ class CreateProjectButton extends Component {
             <div>
                 <button type='button' className='btn btn-info' 
                         onClick={() => this.triggerProjectNameDialog(true)}>
-                    <i className="fas fa-plus"></i> New Project
+                    <FontAwesomeIcon icon={faPlus} size='lg' />&nbsp; New Project
                 </button>
                 <Dialog
                     title='New Project'

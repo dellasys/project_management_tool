@@ -66,38 +66,36 @@ class ProjectItem extends PureComponent {
         
         return (
             <Paper className='project-item'>
-                {/* <div className='project-item'> */}
-                    <div>
-                        {
-                            projectEdit ? 
-                                <TextField
-                                    name='projectName'
-                                    fullWidth={true}
-                                    value={projectName}
-                                    onChange={(e) => this.handleInputChange(e)}
-                                    hintText="" />
-                            :
-                            <Link to={`/features/${projectData._id}`}><strong>{projectName}</strong></Link>
-                        }
-                    </div>
-                    <div>
-                        {
-                            projectEdit ? 
-                                <div className='edit-remove-btn-group'>
-                                    <SaveBtn saveData={() => this.saveProject()}/>
-                                </div>
-                            :
-                                <div className='edit-remove-btn-group'>
-                                    <EditBtn editData={this.editProject} />
-                                    <RemoveBtn removeData={() => this.removeAllProjectAssociatesData()} />
-                                </div>
-                        }
-                    </div>
-                    <div className='feature-row'>
-                        <DisplayFeaturesNumber featuresNumber={projectData.features.length} />
-                        <DateTime dateTime={projectData.createdAt}/>
-                    </div>
-                {/* </div> */}
+                <div>
+                    {
+                        projectEdit ? 
+                            <TextField
+                                name='projectName'
+                                fullWidth={true}
+                                value={projectName}
+                                onChange={(e) => this.handleInputChange(e)}
+                                hintText="" />
+                        :
+                        <Link to={`/features/${projectData._id}`}><strong>{projectName}</strong></Link>
+                    }
+                </div>
+                <div>
+                    {
+                        projectEdit ? 
+                            <div className='edit-remove-btn-group'>
+                                <SaveBtn saveData={() => this.saveProject()}/>
+                            </div>
+                        :
+                            <div className='edit-remove-btn-group'>
+                                <EditBtn editData={this.editProject} />
+                                <RemoveBtn removeData={() => this.removeAllProjectAssociatesData()} />
+                            </div>
+                    }
+                </div>
+                <div className='feature-row'>
+                    <DisplayFeaturesNumber featuresNumber={projectData.features.length} />
+                    <DateTime dateTime={projectData.createdAt}/>
+                </div>
             </Paper>
         )
     }

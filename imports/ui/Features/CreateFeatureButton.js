@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/fontawesome-free-solid';
 
 class CreateFeatureButton extends Component {
 
@@ -77,7 +79,7 @@ class CreateFeatureButton extends Component {
         return (
             <div>
                 <button className='btn btn-info' onClick={() => this.triggerFeatureDialog(true)}>
-                    <i className="fas fa-plus"></i> New Feature
+                    <FontAwesomeIcon icon={faPlus} size='lg' />&nbsp; New Feature
                 </button>
                 <Dialog
                     title='New Feature'

@@ -27,7 +27,7 @@ class App extends Component{
                 <div>
                     <header className='header'>
                         <Link className='href-link-remove' to='/'>
-                            <h3>PM Tool</h3>
+                            <h4>PM Tool</h4>
                         </Link>
                     </header>
                     <Divider />
