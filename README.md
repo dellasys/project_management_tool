@@ -6,7 +6,7 @@
 
 For macOs :
 
-    ```curl https://install.meteor.com/ | sh```
+    curl https://install.meteor.com/ | sh
     
 For Windows : (Using Chocolatey package manager)
 
