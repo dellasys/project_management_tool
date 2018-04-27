@@ -24,8 +24,6 @@ class MenuBar extends Component{
                             <CreateProjectButton projectId={projectId} /> :
                         currentPage == 'features' ?
                             <CreateFeatureButton projectId={projectId} /> :
-                        currentPage == 'todolist' ?
-                            <CreateTodoButton projectId={projectId} /> :
                         ''
                     }
                 </div>

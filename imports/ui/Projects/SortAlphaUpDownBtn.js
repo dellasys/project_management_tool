@@ -9,9 +9,9 @@ const SortAlphaUpDownBtn = ({ sortingUpDownValue, sortUpDown }) => {
         <button className='btn btn-default' onClick={sortUpDown} >
         {
             sortingUpDownValue === 1 ? 
-                <FontAwesomeIcon icon={faSortAlphaUp} size='lg' />
-            :
                 <FontAwesomeIcon icon={faSortAlphaDown} size='lg' />
+            :
+                <FontAwesomeIcon icon={faSortAlphaUp} size='lg' />
         }
         </button>
     )

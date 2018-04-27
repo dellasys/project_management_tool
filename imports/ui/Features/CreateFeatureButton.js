@@ -78,7 +78,7 @@ class CreateFeatureButton extends Component {
         
         return (
             <div>
-                <button className='btn btn-info' onClick={() => this.triggerFeatureDialog(true)}>
+                <button className='add-new-feature-btn' onClick={() => this.triggerFeatureDialog(true)}>
                     <FontAwesomeIcon icon={faPlus} size='lg' />&nbsp; New Feature
                 </button>
                 <Dialog

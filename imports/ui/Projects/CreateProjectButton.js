@@ -71,7 +71,7 @@ class CreateProjectButton extends Component {
         
         return (
             <div>
-                <button type='button' className='btn btn-info' 
+                <button type='button' className='add-new-project-btn' 
                         onClick={() => this.triggerProjectNameDialog(true)}>
                     <FontAwesomeIcon icon={faPlus} size='lg' />&nbsp; New Project
                 </button>

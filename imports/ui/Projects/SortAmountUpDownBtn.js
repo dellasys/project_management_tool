@@ -4,7 +4,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faSortAmountUp, faSortAmountDown } from '@fortawesome/fontawesome-free-solid';
 
 const SortAmountUpDownBtn = ({ sortingUpDownValue, sortUpDown }) => {
-
+    
     return (
         <button className='btn btn-default' onClick={sortUpDown} >
         {

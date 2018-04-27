@@ -24,6 +24,18 @@ $theme-color:#F9F9F9;
     @include icon-btn-style(#e5224d);
 }
 
+.add-new-project-btn{
+    @include icon-btn-style(#3f6184);
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.add-new-feature-btn{
+    @include icon-btn-style(#3f6184);
+    font-weight: bold;
+    font-size: 12pt;
+}
+
 .add-border{
     border: 1px solid red;
 }
@@ -134,7 +146,7 @@ $theme-color:#F9F9F9;
 
 .menu-bar{
     display:grid;
-    grid-template-columns: auto 120px;
+    grid-template-columns: auto 145px;
     padding:10px 20px 10px 10px;
     background-color: $theme-color;
 }

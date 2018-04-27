@@ -4,12 +4,13 @@ import TextField from 'material-ui/TextField';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
 
-const Search = ({ handleKeywordChange, searchKeyword }) => {
+const Search = ({ handleKeywordChange, searchKeyword, keyword }) => {
     
     return (
         <div className='search-input-group'>
             <form onSubmit={(e) => searchKeyword(e)}>
                 <TextField
+                    value={keyword}
                     name='keyword'
                     fullWidth={true}
                     hintText="Search"

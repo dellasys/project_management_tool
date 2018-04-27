@@ -31,6 +31,7 @@ class Home extends Component{
     
     //Update current page to redux store everytime component mounting
     componentWillMount(){
+        searchKeyword.set('');
         this.props.setCurrentPage('projects');
     }
 
@@ -38,6 +39,10 @@ class Home extends Component{
     searchKeyword = (e) => {
         e.preventDefault();
         searchKeyword.set(this.state.keyword);
+        this.rerunReactTransitionGroup();
+    }
+
+    rerunReactTransitionGroup(){
         this.setState({
             redisplay:false
         })
@@ -59,26 +64,30 @@ class Home extends Component{
     //Button Clicked: Set field name that needs to be sorted
     sortProjects = (event, index, value) => {
         sortingField.set(value);
+        this.rerunReactTransitionGroup();
     }
 
     // Button Clicked: If value is 1 return -1 Else return 1
     sortUpDown = () => {
         let upDownValue = sortingUpDownValue.get() == 1 ? -1: 1;
         sortingUpDownValue.set(upDownValue);
+        this.rerunReactTransitionGroup();
     }
 
     render(){
 
         const { projectList, setCurrentPage, currentPage } = this.props;
-        const { redisplay } = this.state;
+        const { redisplay, keyword } = this.state;
         
         return (
             <div>
                 <div className='projects-sorting-row'>
                     <Search handleKeywordChange={this.handleKeywordChange} 
-                        searchKeyword={this.searchKeyword} />
+                        searchKeyword={this.searchKeyword}
+                        keyword={keyword} />
                     <ProjectsSorting sortingField={sortingField.get()} 
-                            sortingUpDownValue={sortingUpDownValue.get()} sortProjects={this.sortProjects}
+                            sortingUpDownValue={sortingUpDownValue.get()} 
+                            sortProjects={this.sortProjects}
                             sortUpDown={this.sortUpDown} />
                 </div>
                 {
