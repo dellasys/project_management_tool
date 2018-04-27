@@ -8,7 +8,7 @@ import { setCurrentPage } from '../Actions';
 import { CSSTransitionGroup } from 'react-transition-group';
 import TodoItem from './ToDoList/TodoItem';
 import CreateTodoButton from './ToDoList/CreateTodoButton';
-import NoTodoFound from './ToDoList/NoTodoFound';
+import NoItemFound from './Common/NoItemFound';
 
 class ToDoList extends Component{
 
@@ -20,7 +20,7 @@ class ToDoList extends Component{
             <div className='todolist_box'>
                 {
                     todosList.length < 1 ? 
-                        <NoTodoFound />
+                        <NoItemFound content='No todo has created.' />
                     :
                         ''
                 }

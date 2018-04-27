@@ -26,7 +26,7 @@ class Features extends Component{
         
         if(!projectsSubReady){
             //When subscription has not ready return Loading...
-            return <div className='loadingGroup'>Loading...</div>
+            return <div className='loading-group'>Loading...</div>
         }else if(projectsList.length < 1 && projectsSubReady){  
             //When subscription has ready and projectsList is empty return ProjectDoesNotExist component
             return <ProjectDoesNotExist />
@@ -43,9 +43,11 @@ class Features extends Component{
                     }
                     </h3>
                     {
-                        featuresList.length < 1 ?
-                        <NoItemFound content='No feature has created.' />:
-                        ''
+                        featuresList.length < 1 
+                        ?
+                            <NoItemFound content='No feature has created.' /> 
+                        :
+                            ''
                     }
                     <CSSTransitionGroup
                         transitionName="animatedlist"

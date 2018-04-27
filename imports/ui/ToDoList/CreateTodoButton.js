@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/fontawesome-free-solid';
 
 class CreateTodoButton extends Component {
 
@@ -79,7 +81,7 @@ class CreateTodoButton extends Component {
             width:'300px',
             backgroundColor: 'red'
         }
-        
+
         return (
             <form onSubmit={(e) => this.insertTodo(e)}>
                 <div className='add-new-todo'>
@@ -89,9 +91,13 @@ class CreateTodoButton extends Component {
                         name='name'
                         onChange={(e) => this.handleInputChange(e)}
                         hintText="Enter new todo" />
-                <div className='add-new-do-btn'>
+                    <div className='add-new-do-btn'>
                         &nbsp;&nbsp;
-                    <button className='btn btn-success' onClick={(e) => this.insertTodo(e)}>Add</button>
+                        <button className='btn btn-default add-new-todo-btn' onClick={(e) => this.insertTodo(e)}>
+                            <span className='add-new-todo-btn-icon'>
+                                <FontAwesomeIcon icon={faPlus} size='lg' />
+                            </span>
+                        </button>
                     </div>
                 </div>
             </form>

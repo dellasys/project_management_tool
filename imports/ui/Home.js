@@ -10,6 +10,8 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import Search from './Projects/Seach';
 import ProjectsSorting from './Projects/ProjectsSorting';
 import NoItemFound from './Common/NoItemFound';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/fontawesome-free-solid';
 
 //Reactive Variables
 let searchKeyword = ReactiveVar('');
@@ -23,6 +25,7 @@ class Home extends Component{
 
         this.state = {
             keyword: '',
+            redisplay:true
         }
     }
     
@@ -35,6 +38,15 @@ class Home extends Component{
     searchKeyword = (e) => {
         e.preventDefault();
         searchKeyword.set(this.state.keyword);
+        this.setState({
+            redisplay:false
+        })
+
+        setTimeout(() => {
+            this.setState({
+                redisplay:true
+            })
+        },300)
     }
 
     //Update keyword state that being entered in search input
@@ -58,7 +70,7 @@ class Home extends Component{
     render(){
 
         const { projectList, setCurrentPage, currentPage } = this.props;
-        const {  } = this.state;
+        const { redisplay } = this.state;
         
         return (
             <div>
@@ -75,19 +87,27 @@ class Home extends Component{
                     :
                     ''
                 }
-                <CSSTransitionGroup
-                    className='project-box'
-                    transitionName="animatedlist"
-                    transitionEnterTimeout={300}
-                    transitionAppearTimeout={200}
-                    transitionLeaveTimeout={300}
-                    transitionAppear={true}>
-                    {
-                        projectList.map(project => {
-                            return (<ProjectItem key={project._id} projectData={project} />)
-                        })
-                    }
-                </CSSTransitionGroup>
+                {
+                    redisplay 
+                    ? 
+                        <CSSTransitionGroup
+                            className='project-box'
+                            transitionName="animatedlist"
+                            transitionEnterTimeout={300}
+                            transitionAppearTimeout={200}
+                            transitionLeaveTimeout={300}
+                            transitionAppear={true}>
+                            {
+                                projectList.map(project => {
+                                    return (<ProjectItem key={project._id} projectData={project} />)
+                                })
+                            }
+                        </CSSTransitionGroup>
+                    :
+                        <div className='loading-group'>
+                            <FontAwesomeIcon icon={faSpinner} spin size='3x' />
+                        </div>
+                }
             </div>
         )
     }

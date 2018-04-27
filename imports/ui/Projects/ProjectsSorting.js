@@ -23,6 +23,8 @@ class ProjectsSorting extends Component {
             <div className='sorting-group'>
                 <SelectField
                     floatingLabelText="Sort by"
+                    selectedMenuItemStyle={{color:'black'}}
+                    menuItemStyle={{color:'#ccc'}}
                     value={sortingField}
                     onChange={sortProjects} >
                     <MenuItem value='createdAt' primaryText="Created time" />
