@@ -3,9 +3,13 @@
 ## Installation
 
 1. On terminal, install meteor using the following command : 
+
 For macOs :
+
     ```curl https://install.meteor.com/ | sh```
+    
 For Windows : (Using Chocolatey package manager)
+
     choco install meteor
 2. Run ```git clone https://github.com/dellasys/project_management_tool.git .``` in project directory.
 3. Run npm install in project directory.
