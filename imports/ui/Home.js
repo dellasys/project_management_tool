@@ -82,7 +82,7 @@ class Home extends Component{
                             sortUpDown={this.sortUpDown} />
                 </div>
                 {
-                    projectList.length < 1 ? 
+                    projectList.length < 1 && redisplay ? 
                         <NoItemFound content='No project found.' />
                     :
                     ''

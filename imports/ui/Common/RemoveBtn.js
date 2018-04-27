@@ -6,7 +6,7 @@ import { faTrashAlt } from '@fortawesome/fontawesome-free-solid';
 const RemoveBtn = ({removeData}) => {
 
     return (
-            <button className='btn btn-danger' onClick={removeData}>
+            <button className='remove-icon-btn' onClick={removeData}>
                 <FontAwesomeIcon icon={faTrashAlt} size='lg' />
             </button>
     )

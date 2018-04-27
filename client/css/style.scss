@@ -1,8 +1,27 @@
 $theme-color:#F9F9F9;
 
-.btn-warning, .btn-danger, .btn-primary{
-    padding:3px;
-    font-size: 8pt;
+@mixin icon-btn-style($color){
+    border: none;
+    background-color: transparent;
+    font-size: 10pt;
+    color: $color;
+    -webkit-transition: font-size 1s;
+    transition: font-size 0.2s;
+    &:hover{
+        font-size: 11pt;
+    }
+}
+
+.save-icon-btn{
+    @include icon-btn-style(#658999);
+}
+
+.edit-icon-btn{
+    @include icon-btn-style(#e67f22);
+}
+
+.remove-icon-btn{
+    @include icon-btn-style(#e5224d);
 }
 
 .add-border{
@@ -120,11 +139,6 @@ $theme-color:#F9F9F9;
     background-color: $theme-color;
 }
 
-.create-project-dialog{
-    width:300px;
-    background-color: red;
-}
-
 .project-not-found-message{
     padding:20px;
     text-align: center;
@@ -143,7 +157,6 @@ $theme-color:#F9F9F9;
         transform: translate3d(0, 0, 0);
     }
 }
-
 
 @keyframes slideOut{
     0% {
@@ -181,8 +194,8 @@ $theme-color:#F9F9F9;
     opacity: 0;
     animation: slideUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-// CSS Transition End
 
+// CSS Transition End
 .href-link-remove:hover {
     text-decoration: none;
 }
@@ -196,7 +209,6 @@ $theme-color:#F9F9F9;
 }
 
 .edit-remove-btn-group button{
-    z-index:999 !important;
     margin: 3px;
     width: 100%;
 }
@@ -227,14 +239,17 @@ $theme-color:#F9F9F9;
     color: #ccc;
 }
 
-.complete-status{
-    color: green;
+@mixin todo-status($color){
+    color: $color;
     transition: opacity 0.5s;
 }
 
+.complete-status{
+    @include todo-status(green);
+}
+
 .incomplete-status{
-    color: #D00915;
-    transition: opacity 0.5s;
+    @include todo-status(#D00915);
 }
 
 .loading-group{
@@ -282,8 +297,7 @@ $theme-color:#F9F9F9;
 
 .add-new-todo-btn{
     padding: 2px 10px 2px 10px;
-}
-
-.add-new-todo-btn-icon{
-    color: #ccc;
+    .add-new-todo-btn-icon{
+        color: #ccc;
+    }
 }

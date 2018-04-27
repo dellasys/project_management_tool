@@ -6,7 +6,7 @@ import { faEdit } from '@fortawesome/fontawesome-free-solid';
 const EditBtn = ({editData}) => {
 
     return (
-            <button className='btn btn-warning' onClick={editData}>
+            <button className='edit-icon-btn' onClick={editData}>
                 <FontAwesomeIcon icon={faEdit} size='lg' />
             </button>
     )

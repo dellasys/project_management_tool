@@ -6,7 +6,7 @@ import { faSave } from '@fortawesome/fontawesome-free-solid';
 const SaveBtn = ({ saveData }) => {
 
     return (
-        <button className='btn btn-primary' onClick={saveData}>
+        <button className='save-icon-btn' onClick={saveData}>
             <FontAwesomeIcon icon={faSave} size='lg' />
         </button>
     )
